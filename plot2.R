@@ -8,6 +8,7 @@ electricpower$Date <- as.Date(electricpower$Date, "%d/%m/%Y")
 electric <- subset(electricpower, Date == "2007-02-01"| Date == "2007-02-02")
 electric$datetime <- strptime(paste(electric$Date, electric$Time, sep =" "), format = "%Y-%m-%d%H:%M:%S")
 
-
-plot(electric$datetime, electric$Global_active_power, pch = ".")
+png("plot2.png")
+plot(electric$datetime, electric$Global_active_power, pch = ".", xlab = "", ylab = "Global Active Power (kilowatts)")
 lines(electric$datetime, electric$Global_active_power)
+dev.off()
